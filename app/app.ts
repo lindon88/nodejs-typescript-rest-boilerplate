@@ -5,8 +5,6 @@ import testRouter from "./routes/test.routes";
 import {createConnection} from "typeorm";
 
 const app = express();
-
-
 app.use(bodyParser.json());
 // route for test controller and route
 app.use(testRouter);

@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var testRouter = express_1.default.Router();
@@ -47,9 +46,14 @@ var typeorm_1 = require("typeorm");
 testRouter.get("/api/test", function (req, res, next) {
     test_controller_1.default.test_function(req, res, next);
 });
-testRouter.get('/api/users', function (req, res, next) { return __awaiter(_this, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        return [2 /*return*/, typeorm_1.getConnection('default').getRepository(User_1.User).find()];
+typeorm_1.createConnection('mysql').then(function (connection) {
+    testRouter.get('/api/users', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                res.json(typeorm_1.getConnection('mysql').getRepository(User_1.User).find());
+                return [2 /*return*/];
+            });
+        });
     });
-}); });
+});
 exports.default = testRouter;
