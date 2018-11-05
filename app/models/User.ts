@@ -1,19 +1,19 @@
 import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 
-@Entity()
+@Entity('users')
 export class User {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column()
+    @Column({type: 'varchar'})
     username!: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     email!: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     first_name!: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     last_name!: string;
 }
