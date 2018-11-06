@@ -1,3 +1,0 @@
- - Mysql connection
- - Logger
- - Other core classes

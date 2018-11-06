@@ -1,26 +1,4 @@
-import "reflect-metadata";
-import * as bodyParser from "body-parser";
-import testRouter from "./routes/test.routes";
-import express from "express";
-import {createConnection} from "typeorm";
+import Application from "./core/application";
 
-createConnection().then(async (connection) => {
-    const app = express();
-
-    app.use(bodyParser.json());
-// route for test controller and route
-    testRouter.register(app);
-
-    /**
-     * Start Express server.
-     */
-    const PORT = 8200;
-    const server = app.listen(PORT, () => {
-        console.log(
-            "  App is running at http://localhost:%d in %s mode",
-            PORT,
-            app.get("env"),
-        );
-        console.log("  Press CTRL-C to stop\n");
-    });
-}).catch((error) => console.log("TypeORM connection error: ", error));
+// bootstrap application
+Application.bootstrap();
