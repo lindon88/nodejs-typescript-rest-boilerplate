@@ -6,6 +6,7 @@ class TestController {
         const message = {message: "api test successful"};
         res.json(message);
     }
+
 }
 
 export default new TestController();
