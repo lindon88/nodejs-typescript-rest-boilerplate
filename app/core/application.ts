@@ -39,8 +39,11 @@ class Application {
         });
     }
 
-    private databaseConnect = () => {
-        return this.dbOptions;
+    private databaseConnect = async () => {
+        const options = this.dbOptions;
+        return await createConnection(
+            options,
+        );
     }
 }
 

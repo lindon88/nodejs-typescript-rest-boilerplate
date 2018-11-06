@@ -1,8 +1,8 @@
 import {createConnection} from "typeorm";
 
 class DbConfig {
-    public connection = async () => {
-        return await createConnection({
+    public connection = () => {
+        return {
             type:     "mysql",
             name:     "default",
             host:     "localhost",
@@ -12,7 +12,7 @@ class DbConfig {
             database: "test",
             entities: ["build/models/*.js"],
             logging:  true,
-        });
+        };
     }
 }
 export default new DbConfig();
