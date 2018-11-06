@@ -53,7 +53,14 @@
         "prefer-const": true,
         "jsdoc-format": true,
         "no-console": false,
-        "ordered-imports": false
+        "ordered-imports": false,
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore",
+            "allow-snake-case"
+        ]
     },
     "rulesDirectory": []
 }

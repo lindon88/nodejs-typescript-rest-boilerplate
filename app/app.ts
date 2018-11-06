@@ -1,8 +1,7 @@
-import 'reflect-metadata';
+import "reflect-metadata";
 import * as bodyParser from "body-parser";
 import express from "express";
 import testRouter from "./routes/test.routes";
-import {createConnection} from "typeorm";
 
 const app = express();
 app.use(bodyParser.json());

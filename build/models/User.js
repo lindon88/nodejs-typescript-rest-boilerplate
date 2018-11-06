@@ -14,19 +14,19 @@ var User = /** @class */ (function () {
         typeorm_1.PrimaryGeneratedColumn()
     ], User.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar' })
+        typeorm_1.Column({ type: "varchar" })
     ], User.prototype, "username", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar' })
+        typeorm_1.Column({ type: "varchar" })
     ], User.prototype, "email", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar' })
+        typeorm_1.Column({ type: "varchar" })
     ], User.prototype, "first_name", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar' })
+        typeorm_1.Column({ type: "varchar" })
     ], User.prototype, "last_name", void 0);
     User = __decorate([
-        typeorm_1.Entity('users')
+        typeorm_1.Entity("users")
     ], User);
     return User;
 }());
