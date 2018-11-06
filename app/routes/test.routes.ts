@@ -1,12 +1,15 @@
 import express from "express";
-const testRouter = express.Router();
-import {NextFunction, Response, Request} from "express";
-import testCtrl from "../controllers/test.controller";
-import {createConnection} from "typeorm";
+import TestController from "../controllers/test.controller";
 
-// todo-nemanja testirati nesto slicno ovome
+class TestRouter {
+    public register = (app: any) => {
+        const routes = express.Router();
+        const testCtrl = new TestController();
+        routes.get("/api/test", testCtrl.test_function);
+        routes.get("/api/users", testCtrl.user_helper_function);
 
-testRouter.get("/api/test", testCtrl.test_function);
-testRouter.get("/api/users", testCtrl.user_helper_function);
+        app.use(routes);
+    }
+}
 
-export default testRouter;
+export default new TestRouter();

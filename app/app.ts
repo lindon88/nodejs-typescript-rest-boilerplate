@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import * as bodyParser from "body-parser";
-import express from "express";
 import testRouter from "./routes/test.routes";
+import express from "express";
 import {createConnection} from "typeorm";
 
 createConnection().then(async (connection) => {
@@ -9,7 +9,7 @@ createConnection().then(async (connection) => {
 
     app.use(bodyParser.json());
 // route for test controller and route
-    app.use(testRouter);
+    testRouter.register(app);
 
     /**
      * Start Express server.

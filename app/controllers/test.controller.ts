@@ -1,7 +1,13 @@
 import {NextFunction, Request, Response, Router} from "express";
-import testCtrl from "./helpers/test.helper";
+import TestHelper from "./helpers/test.helper";
+import {User} from "../models/User";
+import {getRepository} from "typeorm";
 
 class TestController {
+    private testHelper: TestHelper;
+    constructor() {
+        this.testHelper = new TestHelper(getRepository(User));
+    }
 
     /**
      * todo-nemanja u controller ide validacija input parameters i input body i takodje formatiranje responsa
@@ -15,11 +21,11 @@ class TestController {
         res.json(message);
     }
 
-    public async user_helper_function(req: Request, res: Response, next: NextFunction) {
-        const results = await testCtrl.getAllUsers();
+    public user_helper_function = async (req: Request, res: Response, next: NextFunction) => {
+        const results = await this.testHelper.getAllUsers();
         res.json(results);
     }
 
 }
 
-export default new TestController();
+export default TestController;
