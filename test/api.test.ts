@@ -8,9 +8,9 @@ const expect = chai.expect;
 
 describe("TEST API REQUEST", () => {
     it("should return response an call", () => {
-        return chai.request(app).get("/api/test")
+        return chai.request("http://localhost:8200").get("/api/test")
             .then((res) => {
-                chai.expect(res.body).to.eql({});
+                chai.expect(res.body).to.eql({message: "api test successful"});
             });
     });
 })

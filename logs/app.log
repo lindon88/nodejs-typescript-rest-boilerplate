@@ -3,3 +3,7 @@
 {"startTime":"2018-11-07T14:44:41.628Z","categoryName":"service","level":"DEBUG","data":["Users returned successfully"],"context":{}},
 {"startTime":"2018-11-07T14:53:53.240Z","categoryName":"service","level":"DEBUG","data":["Poruka!"],"context":{}},
 {"startTime":"2018-11-07T14:53:59.252Z","categoryName":"service","level":"DEBUG","data":["Users returned successfully"],"context":{}},
+{"startTime":"2018-11-07T15:07:27.407Z","categoryName":"service","level":"DEBUG","data":["Poruka!"],"context":{}},
+{"startTime":"2018-11-07T15:07:43.379Z","categoryName":"service","level":"DEBUG","data":["Message returned successfully"],"context":{}},
+{"startTime":"2018-11-07T15:08:51.016Z","categoryName":"service","level":"DEBUG","data":["Poruka!"],"context":{}},
+{"startTime":"2018-11-07T15:08:57.107Z","categoryName":"service","level":"DEBUG","data":["Message returned successfully"],"context":{}},
