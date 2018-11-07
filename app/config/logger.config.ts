@@ -25,8 +25,8 @@ class LoggerConfig {
                 type: "file",
                 filename: pathResolve.resolve(__dirname + "../../../logs/app.log"),
                 layout: {
-                    type: "json",
-                    separator: ",",
+                    type: "pattern",
+                    pattern: "%d %p %c %X{user} %m%n",
                 },
             });
         return logger;
