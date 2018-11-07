@@ -5,8 +5,8 @@ import express from "express";
 import {createConnection} from "typeorm";
 import dbConfig from "../config/db.config";
 import pathResolve = require("path");
-import * as swagger from "swagger-express-ts";
-import {SwaggerDefinitionConstant} from "swagger-express-ts";
+
+import SwaggerConfig from "../config/swagger.config";
 
 class Application {
     private expressServer: any;
@@ -27,19 +27,7 @@ class Application {
 
         // route for test controller and route
         testRouter.register(this.expressServer);
-        this.expressServer.use("/api-docs/swagger", express.static("docs/swagger"));
-        this.expressServer.use("/api-docs/swagger/assets", express.static("node_modules/swagger-ui-dist"));
-        this.expressServer.use(swagger.express(
-            {
-                definition : {
-                    info : {
-                        title : "NodeJS TypeScript Boilerplate" ,
-                        version : "1.0",
-                    } ,
-                    // Models can be defined here
-                },
-            },
-        ));
+        SwaggerConfig.register(this.expressServer);
         /**
          * Start Express server.
          */
