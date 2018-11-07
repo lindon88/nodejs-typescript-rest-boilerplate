@@ -5,7 +5,7 @@ import {getRepository} from "typeorm";
 import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-express-ts";
 
 @ApiPath({
-    path: "/test",
+    path: "/api",
     name: "Test",
 })
 export class TestController {
@@ -21,6 +21,7 @@ export class TestController {
      * @param next
      */
     @ApiOperationGet({
+        path: "/test",
         description: "Show message if api works",
         summary: "Get message for api status",
         responses: {
@@ -37,6 +38,7 @@ export class TestController {
 
     // @ts-ignore
     @ApiOperationGet({
+        path: "/users",
         description: "Get all users from database",
         summary: "Get all users from database using typeORM",
         responses: {

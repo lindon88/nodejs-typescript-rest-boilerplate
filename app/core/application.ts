@@ -33,12 +33,9 @@ class Application {
             {
                 definition : {
                     info : {
-                        title : "My api" ,
+                        title : "NodeJS TypeScript Boilerplate" ,
                         version : "1.0",
                     } ,
-                    externalDocs : {
-                        url : "My url",
-                    },
                     // Models can be defined here
                 },
             },
