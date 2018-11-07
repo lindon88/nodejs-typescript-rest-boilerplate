@@ -4,8 +4,9 @@ import testRouter from "../routes/test.routes";
 import express from "express";
 import {createConnection} from "typeorm";
 import dbConfig from "../config/db.config";
-import {RegisterRoutes} from "../routes/routes";
 import pathResolve = require("path");
+import * as swagger from "swagger-express-ts";
+import {SwaggerDefinitionConstant} from "swagger-express-ts";
 
 class Application {
     private expressServer: any;
@@ -26,13 +27,22 @@ class Application {
 
         // route for test controller and route
         testRouter.register(this.expressServer);
-        this.expressServer.use("/docs", express.static("build/swagger-ui"));
-        this.expressServer.use("/swagger.json", (req: any, res: any) => {
-            res.sendFile(pathResolve.resolve(__dirname + "../../../docs/swagger.json"));
-        });
-
-        RegisterRoutes(this.expressServer);
-
+        this.expressServer.use("/api-docs/swagger", express.static("docs/swagger"));
+        this.expressServer.use("/api-docs/swagger/assets", express.static("node_modules/swagger-ui-dist"));
+        this.expressServer.use(swagger.express(
+            {
+                definition : {
+                    info : {
+                        title : "My api" ,
+                        version : "1.0",
+                    } ,
+                    externalDocs : {
+                        url : "My url",
+                    },
+                    // Models can be defined here
+                },
+            },
+        ));
         /**
          * Start Express server.
          */
