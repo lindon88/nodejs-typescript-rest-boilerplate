@@ -2,9 +2,17 @@ import express from "express";
 import * as swagger from "swagger-express-ts";
 
 class SwaggerConfig {
+    /**
+     * Callable bootstrap function
+     * @param app
+     */
     public register = (app: any) => {
         this.routes(app);
     }
+
+    /**
+     * Basic info about api docs
+     */
     private config = () => {
         return {
             definition: {
@@ -17,6 +25,10 @@ class SwaggerConfig {
         };
     }
 
+    /**
+     * Registering routes for docs
+     * @param app
+     */
     private routes = (app: any) => {
         app.use("/api-docs/swagger", express.static("docs/swagger"));
         app.use("/api-docs/swagger/assets", express.static("node_modules/swagger-ui-dist"));
