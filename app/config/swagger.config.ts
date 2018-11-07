@@ -24,4 +24,4 @@ class SwaggerConfig {
     }
 }
 
-export default new SwaggerConfig()
+export default new SwaggerConfig();
