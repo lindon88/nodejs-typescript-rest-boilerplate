@@ -10,6 +10,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
+    "path-resolve": "0.0.1",
     "reflect-metadata": "^0.1.12",
     "swagger-ui-express": "^4.0.1",
     "tsoa": "^2.2.5",
@@ -23,7 +24,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "tslint": "tslint -c tslint.json 'app/**/*.ts'"
+    "tslint": "tslint -c tslint.json 'app/**/*.ts'",
+    "swagger-gen": "tsoa swagger",
+    "routes-gen": "tsoa routes",
+    "copy-swagger-ui": "ncp ./app/swagger-ui ./build/swagger-ui",
+    "build": "npm run tslint && npm run swagger-gen && npm run routes-gen && tsc && npm run copy-swagger-ui"
   },
   "repository": {
     "type": "git",

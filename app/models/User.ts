@@ -1,5 +1,8 @@
 import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 
+/**
+ * @tsoaModel
+ */
 @Entity("users")
 export class User {
     @PrimaryGeneratedColumn()

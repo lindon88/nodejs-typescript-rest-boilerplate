@@ -1,10 +1,31 @@
 {
   "swagger": {
     "outputDirectory": "./docs",
-    "entryFile": "./app/app.ts"
+    "entryFile": "./app/app.ts",
+    "host": "localhost:8200",
+    "basePath": "/"
   },
+  "info": {
+    "description": "TypeScript Nodejs Boilerplate for Rest Services",
+    "version": "1.0.0",
+    "title": "TNB"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "routes": {
+    "basePath": "/",
     "entryFile": "./app/app.ts",
     "routesDir": "./app/routes"
-  }
+  },
+  "ignore": [
+    "**/node_modules/**"
+  ]
 }

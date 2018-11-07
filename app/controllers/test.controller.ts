@@ -2,8 +2,10 @@ import {NextFunction, Request, Response, Router} from "express";
 import TestHelper from "./helpers/test.helper";
 import {User} from "../models/User";
 import {getRepository} from "typeorm";
+import {Get, Route} from "tsoa";
 
-class TestController {
+@Route("Api")
+export class TestController {
     private testHelper: TestHelper;
     constructor() {
         this.testHelper = new TestHelper(getRepository(User));
@@ -21,6 +23,7 @@ class TestController {
         res.json(message);
     }
 
+    @Get("ApiUsers")
     public user_helper_function = async (req: Request, res: Response, next: NextFunction) => {
         const results = await this.testHelper.getAllUsers();
         res.json(results);
