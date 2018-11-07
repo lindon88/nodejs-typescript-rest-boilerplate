@@ -3,6 +3,8 @@ import TestHelper from "./helpers/test.helper";
 import {User} from "../models/User";
 import {getRepository} from "typeorm";
 import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-express-ts";
+import {Logger} from "ts-log-debug";
+import loggerConfig from "../config/logger.config";
 
 @ApiPath({
     path: "/api",
@@ -34,6 +36,7 @@ export class TestController {
         console.log("API TEST");
         const message = {message: "api test successful"};
         res.json(message);
+        loggerConfig.register().debug("Message returned successfully");
     }
 
     // @ts-ignore
@@ -50,6 +53,7 @@ export class TestController {
     public user_helper_function = async (req: Request, res: Response, next: NextFunction) => {
         const results = await this.testHelper.getAllUsers();
         res.json(results);
+        loggerConfig.register().debug("Users returned successfully");
     }
 
 }

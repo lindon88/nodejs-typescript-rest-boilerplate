@@ -7,6 +7,9 @@ import dbConfig from "../config/db.config";
 import pathResolve = require("path");
 
 import SwaggerConfig from "../config/swagger.config";
+import LoggerConfig from "../config/logger.config";
+
+import {$log} from "ts-log-debug";
 
 class Application {
     private expressServer: any;
@@ -28,6 +31,8 @@ class Application {
         // route for test controller and route
         testRouter.register(this.expressServer);
         SwaggerConfig.register(this.expressServer);
+        // start logger
+        LoggerConfig.register().debug("Poruka!");
         /**
          * Start Express server.
          */
