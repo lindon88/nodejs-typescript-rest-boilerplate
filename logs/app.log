@@ -102,3 +102,11 @@
 
 2018-11-08T10:41:00.068 DEBUG service X{user} User returned with id: 2
 
+2018-11-08T10:44:10.892 DEBUG service X{user} Message returned successfully
+
+2018-11-08T10:52:40.861 DEBUG service X{user} Poruka!
+
+2018-11-08T11:01:14.112 DEBUG service X{user} Poruka!
+
+2018-11-08T11:02:31.897 DEBUG service X{user} Poruka!
+

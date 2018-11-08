@@ -39,7 +39,9 @@
     "test": "mocha -r ts-node/register app/controllers/*.test.ts",
     "tsc": "tsc",
     "tslint": "tslint -c tslint.json 'app/**/*.ts'",
-    "docs": "./node_modules/.bin/typedoc --out ./docs/typedoc --mode modules"
+    "docs": "./node_modules/.bin/typedoc --out ./docs/typedoc --mode modules",
+    "build": "tsc && npm run tslint && npm run docs",
+    "start": "node build/app.js"
   },
   "repository": {
     "type": "git",

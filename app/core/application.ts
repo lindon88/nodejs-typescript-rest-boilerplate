@@ -6,6 +6,7 @@ import dbConfig from "../config/db.config";
 import {useExpressServer} from "routing-controllers";
 import SwaggerConfig from "../config/swagger.config";
 import LoggerConfig from "../config/logger.config";
+import TsdocConfig from "../config/tsdoc.config";
 import TestController from "../controllers/test.controller";
 
 class Application {
@@ -32,8 +33,9 @@ class Application {
         // route for test controller and route
         useExpressServer(this.expressServer, {
             controllers: [TestController],
-        })
+        });
         SwaggerConfig.register(this.expressServer);
+        TsdocConfig.register(this.expressServer);
         // start logger
         LoggerConfig.register().debug("Poruka!");
         /**
@@ -49,7 +51,6 @@ class Application {
             console.log("  Press CTRL-C to stop\n");
         });
     }
-
 
     private databaseConnect = async () => {
         const options = this.dbOptions;

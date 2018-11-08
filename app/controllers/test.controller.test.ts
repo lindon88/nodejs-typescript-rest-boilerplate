@@ -17,4 +17,4 @@ describe("TEST API REQUEST", () => {
                 chai.expect(res.body).to.eql({});
             });
     });
-})
+});
