@@ -12,3 +12,93 @@
 
 2018-11-07T16:18:32.411 DEBUG service X{user} Poruka!
 
+2018-11-08T09:06:50.784 DEBUG service X{user} Poruka!
+
+2018-11-08T09:08:51.278 DEBUG service X{user} Poruka!
+
+2018-11-08T09:09:17.001 DEBUG service X{user} Poruka!
+
+2018-11-08T09:10:28.136 DEBUG service X{user} Poruka!
+
+2018-11-08T09:12:57.623 DEBUG service X{user} Poruka!
+
+2018-11-08T09:13:33.523 DEBUG service X{user} Poruka!
+
+2018-11-08T09:14:02.045 DEBUG service X{user} Poruka!
+
+2018-11-08T09:14:47.985 DEBUG service X{user} Poruka!
+
+2018-11-08T09:14:51.191 DEBUG service X{user} Message returned successfully
+
+2018-11-08T09:16:45.518 DEBUG service X{user} Poruka!
+
+2018-11-08T09:16:54.444 DEBUG service X{user} Message returned successfully
+
+2018-11-08T09:16:55.638 DEBUG service X{user} Message returned successfully
+
+2018-11-08T09:16:55.978 DEBUG service X{user} Message returned successfully
+
+2018-11-08T09:16:56.306 DEBUG service X{user} Message returned successfully
+
+2018-11-08T09:31:09.191 DEBUG service X{user} Poruka!
+
+2018-11-08T09:31:19.408 DEBUG service X{user} Message returned successfully
+
+2018-11-08T09:31:47.369 DEBUG service X{user} Poruka!
+
+2018-11-08T09:31:50.014 DEBUG service X{user} Users returned successfully
+
+2018-11-08T09:34:48.996 DEBUG service X{user} Poruka!
+
+2018-11-08T09:34:53.892 DEBUG service X{user} Users returned successfully
+
+2018-11-08T10:11:41.270 DEBUG service X{user} Poruka!
+
+2018-11-08T10:11:49.739 DEBUG service X{user} Users returned successfully
+
+2018-11-08T10:11:52.983 DEBUG service X{user} User returned with id: undefined
+
+2018-11-08T10:12:02.985 DEBUG service X{user} User returned with id: undefined
+
+2018-11-08T10:13:53.380 DEBUG service X{user} Poruka!
+
+2018-11-08T10:13:54.861 DEBUG service X{user} User returned with id
+
+2018-11-08T10:13:55.542 DEBUG service X{user} User returned with id
+
+2018-11-08T10:14:30.922 DEBUG service X{user} Poruka!
+
+2018-11-08T10:14:34.125 DEBUG service X{user} User returned with id: undefined
+
+2018-11-08T10:16:32.046 DEBUG service X{user} Poruka!
+
+2018-11-08T10:16:41.133 DEBUG service X{user} User returned with id: 2
+
+2018-11-08T10:16:42.497 DEBUG service X{user} User returned with id: 2
+
+2018-11-08T10:16:44.323 DEBUG service X{user} User returned with id: 3
+
+2018-11-08T10:16:46.688 DEBUG service X{user} User returned with id: 1
+
+2018-11-08T10:17:44.388 DEBUG service X{user} User returned with id: 2
+
+2018-11-08T10:19:44.037 DEBUG service X{user} Poruka!
+
+2018-11-08T10:19:46.281 DEBUG service X{user} User returned with id: 2
+
+2018-11-08T10:19:49.086 DEBUG service X{user} Users returned successfully
+
+2018-11-08T10:21:22.843 DEBUG service X{user} Poruka!
+
+2018-11-08T10:23:32.667 DEBUG service X{user} Poruka!
+
+2018-11-08T10:24:09.489 DEBUG service X{user} User returned with id: NaN
+
+2018-11-08T10:37:50.018 DEBUG service X{user} Poruka!
+
+2018-11-08T10:38:23.368 DEBUG service X{user} User returned with id: NaN
+
+2018-11-08T10:40:46.142 DEBUG service X{user} Poruka!
+
+2018-11-08T10:41:00.068 DEBUG service X{user} User returned with id: 2
+

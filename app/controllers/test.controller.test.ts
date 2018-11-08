@@ -6,6 +6,10 @@ import Application from "../core/application";
 chai.use(chaiHttp);
 const expect = chai.expect;
 const app = Application.getServer();
+
+/**
+ * Test for api
+ */
 describe("TEST API REQUEST", () => {
     it("should return response an call", () => {
         return chai.request(app).get("/api/test")

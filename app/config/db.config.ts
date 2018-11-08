@@ -1,6 +1,12 @@
 import {createConnection} from "typeorm";
 
+/**
+ * Configuration file for database
+ */
 class DbConfig {
+    /**
+     * @returns connection
+     */
     public connection = () => {
         return {
             type:     "mysql",

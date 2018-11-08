@@ -2,9 +2,12 @@ import {Logger} from "ts-log-debug";
 import pathResolve = require("path");
 import {log} from "util";
 
+/**
+ * Configuration file for logger
+ */
 class LoggerConfig {
     /**
-     * Return logger
+     * @returns logger
      */
     public register = () => {
         const logger = new Logger("service");

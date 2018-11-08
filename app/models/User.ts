@@ -1,6 +1,9 @@
 import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 import {ApiModel, ApiModelProperty} from "swagger-express-ts";
 
+/**
+ * User model
+ */
 @ApiModel({
     description: "Users description",
     name: "User",

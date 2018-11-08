@@ -1,15 +1,12 @@
 import "reflect-metadata";
 import * as bodyParser from "body-parser";
-import testRouter from "../routes/test.routes";
 import express from "express";
 import {createConnection} from "typeorm";
 import dbConfig from "../config/db.config";
-import pathResolve = require("path");
-
+import {useExpressServer} from "routing-controllers";
 import SwaggerConfig from "../config/swagger.config";
 import LoggerConfig from "../config/logger.config";
-
-import {$log} from "ts-log-debug";
+import TestController from "../controllers/test.controller";
 
 class Application {
     private expressServer: any;
@@ -33,7 +30,9 @@ class Application {
         this.expressServer.use(bodyParser.json());
 
         // route for test controller and route
-        testRouter.register(this.expressServer);
+        useExpressServer(this.expressServer, {
+            controllers: [TestController],
+        })
         SwaggerConfig.register(this.expressServer);
         // start logger
         LoggerConfig.register().debug("Poruka!");

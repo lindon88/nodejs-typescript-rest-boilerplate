@@ -1,6 +1,9 @@
 import express from "express";
 import * as swagger from "swagger-express-ts";
 
+/**
+ * Configuration file for swagger
+ */
 class SwaggerConfig {
     /**
      * Callable bootstrap function
