@@ -32,7 +32,7 @@
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register test/*.test.ts",
+    "test": "mocha -r ts-node/register app/controllers/*.test.ts",
     "tsc": "tsc",
     "tslint": "tslint -c tslint.json 'app/**/*.ts'",
     "swagger-gen": "tsoa swagger",

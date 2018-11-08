@@ -25,6 +25,10 @@ class Application {
         }).catch((error: any) => console.log("TypeORM connection error: ", error));
     }
 
+    public getServer = () => {
+        return this.expressServer;
+    }
+
     private serverStart = () => {
         this.expressServer.use(bodyParser.json());
 
@@ -46,6 +50,7 @@ class Application {
             console.log("  Press CTRL-C to stop\n");
         });
     }
+
 
     private databaseConnect = async () => {
         const options = this.dbOptions;

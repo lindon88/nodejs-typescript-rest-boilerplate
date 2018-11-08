@@ -7,3 +7,8 @@
 {"startTime":"2018-11-07T15:07:43.379Z","categoryName":"service","level":"DEBUG","data":["Message returned successfully"],"context":{}},
 {"startTime":"2018-11-07T15:08:51.016Z","categoryName":"service","level":"DEBUG","data":["Poruka!"],"context":{}},
 {"startTime":"2018-11-07T15:08:57.107Z","categoryName":"service","level":"DEBUG","data":["Message returned successfully"],"context":{}},
+{"startTime":"2018-11-07T15:13:24.865Z","categoryName":"service","level":"DEBUG","data":["Poruka!"],"context":{}},
+2018-11-07T16:17:43.998 DEBUG service X{user} Poruka!
+
+2018-11-07T16:18:32.411 DEBUG service X{user} Poruka!
+
