@@ -100,16 +100,17 @@ export class TestController {
 
     @Post("/api/user/create")
     public createUser(@Body({validate: true}) user: User) {
-        const valid =  validate(user).then((errors) => {
-            if (errors.length > 0) {
-                console.log("validation failed. errors: ", errors);
-                return errors;
-            } else {
-                const res = this.testHelper.postUser(user);
-                return {message: "ran post user create"};
-            }
+        return new Promise((resolve, reject) => {
+            resolve(validate(user).then((errors) => {
+                if (errors.length > 0) {
+                    console.log("validation failed. errors: ", errors);
+                    return errors;
+                } else {
+                    const res = this.testHelper.postUser(user);
+                    return {message: "ran post user create"};
+                }
+            }));
         });
-        return {message: valid};
     }
 }
 
