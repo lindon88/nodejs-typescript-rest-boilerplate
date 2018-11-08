@@ -32,6 +32,7 @@ class Application {
 
         // route for test controller and route
         useExpressServer(this.expressServer, {
+            validation: true,
             controllers: [TestController],
         });
         SwaggerConfig.register(this.expressServer);

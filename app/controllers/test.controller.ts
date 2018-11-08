@@ -1,11 +1,11 @@
-import {NextFunction, Request, Response, Router} from "express";
+import {NextFunction, Request, Response} from "express";
 import TestHelper from "./helpers/test.helper";
 import {User} from "../models/User";
 import {getRepository} from "typeorm";
 import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-express-ts";
 import loggerConfig from "../config/logger.config";
-import {JsonController, Get, Req, Res, Param} from "routing-controllers";
-import {ParameterGenerator} from "tsoa/dist/metadataGeneration/parameterGenerator";
+import {Body, Get, JsonController, Param, Post} from "routing-controllers";
+import {validate} from "class-validator";
 
 /**
  * Test controllers
@@ -92,12 +92,25 @@ export class TestController {
         },
     })
     @Get("/api/user/:id")
-    public user_by_id(@Param("id") id: number) {
+    public getUser(@Param("id") id: number) {
         const result = this.testHelper.getUser(id);
         loggerConfig.register().debug("User returned with id: " + id);
         return result;
     }
 
+    @Post("/api/user/create")
+    public createUser(@Body({validate: true}) user: User) {
+        const valid =  validate(user).then((errors) => {
+            if (errors.length > 0) {
+                console.log("validation failed. errors: ", errors);
+                return errors;
+            } else {
+                const res = this.testHelper.postUser(user);
+                return {message: "ran post user create"};
+            }
+        });
+        return {message: valid};
+    }
 }
 
 export default TestController;

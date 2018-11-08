@@ -105,6 +105,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_controllers_helpers_test_helper_.testhelper.html#getallusers" class="tsd-kind-icon">get<wbr>All<wbr>Users</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_controllers_helpers_test_helper_.testhelper.html#getuser" class="tsd-kind-icon">get<wbr>User</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_controllers_helpers_test_helper_.testhelper.html#postuser" class="tsd-kind-icon">post<wbr>User</a></li>
 							</ul>
 						</section>
 					</div>
@@ -122,7 +123,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/1b8a910/app/controllers/helpers/test.helper.ts#L10">controllers/helpers/test.helper.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/ba2ca67/app/controllers/helpers/test.helper.ts#L9">controllers/helpers/test.helper.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -153,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<wbr>Repository<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Repository</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_user_.user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/1b8a910/app/controllers/helpers/test.helper.ts#L10">controllers/helpers/test.helper.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/ba2ca67/app/controllers/helpers/test.helper.ts#L9">controllers/helpers/test.helper.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +171,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/1b8a910/app/controllers/helpers/test.helper.ts#L23">controllers/helpers/test.helper.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/ba2ca67/app/controllers/helpers/test.helper.ts#L22">controllers/helpers/test.helper.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -190,16 +191,51 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/1b8a910/app/controllers/helpers/test.helper.ts#L27">controllers/helpers/test.helper.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/ba2ca67/app/controllers/helpers/test.helper.ts#L30">controllers/helpers/test.helper.ts:30</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="_models_user_.user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>user by id</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="postuser" class="tsd-anchor"></a>
+					<h3>post<wbr>User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">post<wbr>User<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="_models_user_.user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/ba2ca67/app/controllers/helpers/test.helper.ts#L38">controllers/helpers/test.helper.ts:38</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>creates a new user in database</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="_models_user_.user.html" class="tsd-signature-type">User</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -261,6 +297,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_controllers_helpers_test_helper_.testhelper.html#getuser" class="tsd-kind-icon">get<wbr>User</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_controllers_helpers_test_helper_.testhelper.html#postuser" class="tsd-kind-icon">post<wbr>User</a>
 							</li>
 						</ul>
 					</li>

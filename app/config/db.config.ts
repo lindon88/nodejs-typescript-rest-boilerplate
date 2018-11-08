@@ -17,7 +17,7 @@ class DbConfig {
             password: "test1234",
             database: "test",
             entities: ["build/models/*.js"],
-            logging:  true,
+            logging:  false,
         };
     }
 }
