@@ -34,6 +34,16 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @Post("/example/person/update")
+    public updatePerson(@Body({validate: true}) person: Person) {
+        return this.validateObject(person).then((response) => {
+            const res = this.exampleHelper.updatePerson(person);
+            return {message: "Successfully updated person parameters"};
+        }).catch((error) => {
+            return {message: error};
+        });
+    }
+
     @Get("/example/person/all")
     public getPersons() {
         const result = this.exampleHelper.getAllPersons();
@@ -52,6 +62,16 @@ export class ExampleController extends BaseController {
     public createAnimal(@Body({validate: true}) animal: Animal) {
         return this.validateObject(animal).then((response) => {
             const res = this.exampleHelper.createAnimal(animal);
+            return {message: "Successfully posted animal parameters"};
+        }).catch((error) => {
+            return {message: error};
+        });
+    }
+
+    @Post("/example/animal/update")
+    public updateAnimal(@Body({validate: true}) animal: Animal) {
+        return this.validateObject(animal).then((response) => {
+            const res = this.exampleHelper.updateAnimal(animal);
             return {message: "Successfully posted animal parameters"};
         }).catch((error) => {
             return {message: error};
@@ -82,6 +102,16 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @Post("/example/pet/update")
+    public updatePet(@Body({validate: true}) pet: Pet) {
+        return this.validateObject(pet).then((response) => {
+            const res = this.exampleHelper.createPet(pet);
+            return {message: "Successfully posted pet parameters"};
+        }).catch((error) => {
+            return {message: error};
+        });
+    }
+
     @Get("/example/pet/all")
     public getAllPets() {
         const results = this.exampleHelper.getAllPets();
@@ -100,6 +130,16 @@ export class ExampleController extends BaseController {
     public createFellowship(@Body({validate: true}) personPet: PersonPet) {
         return this.validateObject(personPet).then((response) => {
             const res = this.exampleHelper.createPersonPet(personPet);
+            return {message: "Successfully posted person-pet parameters"};
+        }).catch((error) => {
+            return {message: error};
+        });
+    }
+
+    @Post("/example/fellows/update")
+    public updateFellowship(@Body({validate: true}) personPet: PersonPet) {
+        return this.validateObject(personPet).then((response) => {
+            const res = this.exampleHelper.updatePersonPet(personPet);
             return {message: "Successfully posted person-pet parameters"};
         }).catch((error) => {
             return {message: error};

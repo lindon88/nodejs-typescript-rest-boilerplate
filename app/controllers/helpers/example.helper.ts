@@ -37,6 +37,19 @@ class ExampleHelper {
     }
 
     /**
+     * Update person data
+     * @param data
+     */
+    public async updatePerson(data: Person) {
+        const person = await this.personRepository.findOne(data.id);
+        person!.first_name = data.first_name;
+        person!.last_name = data.last_name;
+        person!.email = data.email;
+
+        await person!.save();
+    }
+
+    /**
      * @returns all persons
      */
     public async getAllPersons() {
@@ -60,6 +73,16 @@ class ExampleHelper {
         animal.name = data.name;
 
         await animal.save();
+    }
+
+    /**
+     * update Animal
+     * @param data
+     */
+    public async updateAnimal(data: Animal) {
+        const animal = await this.animalRepository.findOne(data.id);
+        animal!.name = data.name;
+        await animal!.save();
     }
 
     /**
@@ -91,12 +114,27 @@ class ExampleHelper {
     }
 
     /**
+     * Update pet
+     * @param data
+     */
+    public async updatePet(data: Pet) {
+        const pet = await this.petRepository.findOne(data.id);
+        pet!.name = data.name;
+        pet!.age = data.age;
+        await pet!.save();
+    }
+
+    /**
      * @returns all pets
      */
     public async getAllPets() {
         return await this.petRepository.find({relations: ["animal_id"]});
     }
 
+    /**
+     * @returns pet by id
+     * @param id
+     */
     public async getPet(id: number) {
         return await this.petRepository.findOne(id, {relations: ["animal_id"]});
     }
@@ -112,6 +150,17 @@ class ExampleHelper {
         personPet.started_fellowship = data.started_fellowship;
 
         await personPet.save();
+    }
+
+    /**
+     * Update person-pet
+     * @param data
+     */
+    public async updatePersonPet(data: PersonPet) {
+        const personPet = await this.personPetRepository.findOne(data.person_id);
+        personPet!.started_fellowship = data.started_fellowship;
+
+        await personPet!.save();
     }
 
     /**
