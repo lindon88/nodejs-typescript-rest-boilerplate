@@ -9,30 +9,28 @@ import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-expre
 import loggerConfig from "../config/logger.config";
 import {Body, Get, JsonController, Param, Post} from "routing-controllers";
 import {validate} from "class-validator";
+import {BaseController} from "./base.controller";
 
 @ApiPath({
     path: "/example",
     name: "Example",
 })
 @JsonController()
-export class ExampleController {
+export class ExampleController extends BaseController {
     private exampleHelper: ExampleHelper;
 
     constructor() {
+        super();
         this.exampleHelper = new ExampleHelper(getRepository(Person), getRepository(Animal), getRepository(Pet), getRepository(PersonPet));
     }
 
     @Post("/example/person/create")
     public createPerson(@Body({validate: true}) person: Person) {
-        return new Promise((resolve, reject) => {
-            resolve(validate(person).then((errors) => {
-                if (errors.length > 0) {
-                    return errors;
-                } else {
-                    const res = this.exampleHelper.createPerson(person);
-                    return {message: "Successfully posted person parameters"};
-                }
-            }));
+        return this.validateObject(person).then((response) => {
+            const res = this.exampleHelper.createPerson(person);
+            return {message: "Successfully posted person parameters"};
+        }).catch((error) => {
+            return {message: error};
         });
     }
 
@@ -52,16 +50,11 @@ export class ExampleController {
 
     @Post("/example/animal/create")
     public createAnimal(@Body({validate: true}) animal: Animal) {
-        return new Promise((resolve, reject) => {
-            resolve(validate(animal).then((errors) => {
-                if (errors.length > 0) {
-                    return errors;
-                } else {
-                    // call helper
-                    const res = this.exampleHelper.createAnimal(animal);
-                    return {message: "Successfully posted animal parameters"};
-                }
-            }));
+        return this.validateObject(animal).then((response) => {
+            const res = this.exampleHelper.createAnimal(animal);
+            return {message: "Successfully posted animal parameters"};
+        }).catch((error) => {
+            return {message: error};
         });
     }
 
@@ -81,16 +74,11 @@ export class ExampleController {
 
     @Post("/example/pet/create")
     public createPet(@Body({validate: true}) pet: Pet) {
-        return new Promise((resolve, reject) => {
-            resolve(validate(pet).then((errors) => {
-                if (errors.length > 0) {
-                    return errors;
-                } else {
-                    // call helper
-                    const res = this.exampleHelper.createPet(pet);
-                    return {message: "Successfully posted pet parameters"};
-                }
-            }));
+        return this.validateObject(pet).then((response) => {
+            const res = this.exampleHelper.createPet(pet);
+            return {message: "Successfully posted pet parameters"};
+        }).catch((error) => {
+            return {message: error};
         });
     }
 
@@ -110,16 +98,11 @@ export class ExampleController {
 
     @Post("/example/fellows/create")
     public createFellowship(@Body({validate: true}) personPet: PersonPet) {
-        return new Promise((resolve, reject) => {
-            resolve(validate(personPet).then((errors) => {
-                if (errors.length > 0) {
-                    return errors;
-                } else {
-                    // call helper
-                    const res = this.exampleHelper.createPersonPet(personPet);
-                    return {message: "Successfully posted pet parameters"};
-                }
-            }));
+        return this.validateObject(personPet).then((response) => {
+            const res = this.exampleHelper.createPersonPet(personPet);
+            return {message: "Successfully posted person-pet parameters"};
+        }).catch((error) => {
+            return {message: error};
         });
     }
 
