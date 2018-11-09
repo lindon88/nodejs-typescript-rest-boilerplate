@@ -234,3 +234,35 @@
 
 2018-11-08T15:59:03.622 DEBUG service X{user} Poruka!
 
+2018-11-09T14:13:17.412 DEBUG service X{user} Requested all person-pet models
+
+2018-11-09T14:14:43.178 DEBUG service X{user} Requested all person-pet models
+
+2018-11-09T14:16:19.226 DEBUG service X{user} Requested all person-pet models
+
+2018-11-09T14:19:44.189 DEBUG service X{user} Requested person by id:  1
+
+2018-11-09T14:21:09.351 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:22:29.853 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:24:26.627 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:32:42.313 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:36:59.964 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:38:49.350 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:39:24.308 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:41:48.607 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:42:22.937 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:43:15.609 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:43:52.201 DEBUG service X{user} Requested person-pet objects by personId:  1
+
+2018-11-09T14:46:03.113 DEBUG service X{user} Requested person-pet objects by personId:  1
+

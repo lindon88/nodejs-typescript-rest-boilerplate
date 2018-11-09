@@ -36,6 +36,20 @@ export class ExampleController {
         });
     }
 
+    @Get("/example/person/all")
+    public getPersons() {
+        const result = this.exampleHelper.getAllPersons();
+        loggerConfig.register().debug("Requested all persons");
+        return result;
+    }
+
+    @Get("/example/person/:id")
+    public getPerson(@Param("id") person_id: number) {
+        const result = this.exampleHelper.getPerson(person_id);
+        loggerConfig.register().debug("Requested person by id: ", person_id);
+        return result;
+    }
+
     @Post("/example/animal/create")
     public createAnimal(@Body({validate: true}) animal: Animal) {
         return new Promise((resolve, reject) => {
@@ -49,6 +63,20 @@ export class ExampleController {
                 }
             }));
         });
+    }
+
+    @Get("/example/animal/all")
+    public getAnimals() {
+        const result = this.exampleHelper.getAllAnimals();
+        loggerConfig.register().debug("Requested all animals");
+        return result;
+    }
+
+    @Get("/example/animal/:id")
+    public getAnimalByID(@Param("id") animal_id: number) {
+        const result = this.exampleHelper.getAnimal(animal_id);
+        loggerConfig.register().debug("Request animal by id: ", animal_id);
+        return result;
     }
 
     @Post("/example/pet/create")
@@ -66,6 +94,20 @@ export class ExampleController {
         });
     }
 
+    @Get("/example/pet/all")
+    public getAllPets() {
+        const results = this.exampleHelper.getAllPets();
+        loggerConfig.register().debug("Requested all pets");
+        return results;
+    }
+
+    @Get("/example/pet/:id")
+    public getPetByID(@Param("id") pet_id: number) {
+        const result = this.exampleHelper.getPet(pet_id);
+        loggerConfig.register().debug("Requested pet by id: ", pet_id);
+        return result;
+    }
+
     @Post("/example/fellows/create")
     public createFellowship(@Body({validate: true}) personPet: PersonPet) {
         return new Promise((resolve, reject) => {
@@ -79,6 +121,20 @@ export class ExampleController {
                 }
             }));
         });
+    }
+
+    @Get("/example/fellows/all")
+    public getAllFellows() {
+        const result = this.exampleHelper.getAllPersonPet();
+        loggerConfig.register().debug("Requested all person-pet models");
+        return result;
+    }
+
+    @Get("/example/fellows/:id")
+    public getFellowsByPerson(@Param("id") person_id: number) {
+        const result = this.exampleHelper.getPersonPetsByPersonID(person_id);
+        loggerConfig.register().debug("Requested person-pet objects by personId: ", person_id);
+        return result;
     }
 }
 export default ExampleController;

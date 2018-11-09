@@ -7,7 +7,7 @@ import {
     ManyToMany,
     JoinColumn,
     ManyToOne,
-    PrimaryColumn,
+    PrimaryColumn, OneToOne,
 } from "typeorm";
 import {ApiModel, ApiModelProperty} from "swagger-express-ts";
 import {IsEmail, IsNumber, Length, MaxLength} from "class-validator";
@@ -40,7 +40,7 @@ export class Pet extends BaseEntity {
         description: "Animal foreign key",
         required: true,
     })
-    @ManyToMany((type) => Animal, { cascade: false })
+    @OneToOne(() => Animal, { cascade: false })
     @JoinColumn({name: "animal_id"})
     public animal: Animal;
 

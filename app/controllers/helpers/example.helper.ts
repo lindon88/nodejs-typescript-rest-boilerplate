@@ -37,6 +37,21 @@ class ExampleHelper {
     }
 
     /**
+     * @returns all persons
+     */
+    public async getAllPersons() {
+        return await this.personRepository.find();
+    }
+
+    /**
+     * @returns person by it's id
+     * @param id
+     */
+    public async getPerson(id: number) {
+        return await this.personRepository.findOne(id);
+    }
+
+    /**
      * Save animal data
      * @param data
      */
@@ -45,6 +60,21 @@ class ExampleHelper {
         animal.name = data.name;
 
         await animal.save();
+    }
+
+    /**
+     * @return all animal types
+     */
+    public async getAllAnimals() {
+        return await this.animalRepository.find();
+    }
+
+    /**
+     * @returns animal by it's id
+     * @param id
+     */
+    public async getAnimal(id: number) {
+        return await this.animalRepository.findOne(id);
     }
 
     /**
@@ -61,6 +91,17 @@ class ExampleHelper {
     }
 
     /**
+     * @returns all pets
+     */
+    public async getAllPets() {
+        return await this.petRepository.find({relations: ["animal_id"]});
+    }
+
+    public async getPet(id: number) {
+        return await this.petRepository.findOne(id, {relations: ["animal_id"]});
+    }
+
+    /**
      * Save person-pet relationship
      * @param data
      */
@@ -71,6 +112,21 @@ class ExampleHelper {
         personPet.started_fellowship = data.started_fellowship;
 
         await personPet.save();
+    }
+
+    /**
+     * @returns all person-pet relations
+     */
+    public async getAllPersonPet() {
+        return await this.personPetRepository.find({relations: ["person", "pet"]});
+    }
+
+    /**
+     * @returns all person-pet relations for one person
+     * @param person
+     */
+    public async getPersonPetsByPersonID(person: number) {
+        return await this.personPetRepository.find({relations: ["person", "pet", "pet.animal"], where: {person_id: person}});
     }
 }
 
