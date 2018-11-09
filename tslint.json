@@ -11,8 +11,7 @@
             "check-space"
         ],
         "indent": [
-            true,
-            "spaces"
+            true
         ],
         "one-line": [
             true,
