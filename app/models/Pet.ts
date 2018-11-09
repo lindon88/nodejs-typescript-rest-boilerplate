@@ -1,4 +1,14 @@
-import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique, ManyToMany, JoinColumn, ManyToOne} from "typeorm";
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    BaseEntity,
+    Unique,
+    ManyToMany,
+    JoinColumn,
+    ManyToOne,
+    PrimaryColumn,
+} from "typeorm";
 import {ApiModel, ApiModelProperty} from "swagger-express-ts";
 import {IsEmail, IsNumber, Length, MaxLength} from "class-validator";
 import {Animal} from "./Animal";
@@ -20,11 +30,18 @@ export class Pet extends BaseEntity {
     public id: number;
 
     @ApiModelProperty({
+        description: "animal id",
+        required: true,
+    })
+    @Column()
+    public animal_id: number;
+
+    @ApiModelProperty({
         description: "Animal foreign key",
         required: true,
     })
-    @ManyToOne((type) => Animal)
-    @JoinColumn({name: "id"})
+    @ManyToMany((type) => Animal, { cascade: false })
+    @JoinColumn({name: "animal_id"})
     public animal: Animal;
 
     @MaxLength(20)

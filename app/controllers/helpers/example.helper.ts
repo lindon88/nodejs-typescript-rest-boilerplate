@@ -47,23 +47,31 @@ class ExampleHelper {
         await animal.save();
     }
 
+    /**
+     * Save pet data
+     * @param data
+     */
     public async createPet(data: Pet) {
         const pet = new Pet();
-        pet.animal = data.animal;
+        pet.animal_id = data.animal_id;
         pet.name = data.name;
         pet.age = data.age;
 
         await pet.save();
     }
 
+    /**
+     * Save person-pet relationship
+     * @param data
+     */
     public async createPersonPet(data: PersonPet) {
         const personPet = new PersonPet();
-        personPet.person = data.person;
         personPet.person_id = data.person_id;
-        personPet.pet = data.pet;
         personPet.pet_id = data.pet_id;
         personPet.started_fellowship = data.started_fellowship;
 
         await personPet.save();
     }
 }
+
+export default ExampleHelper;

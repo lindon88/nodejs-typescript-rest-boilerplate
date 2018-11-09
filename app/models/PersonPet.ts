@@ -31,7 +31,7 @@ export class PersonPet extends BaseEntity {
         description: "foreign key on person",
     })
     @ManyToOne(() => Person)
-    @JoinColumn({name: "id"})
+    @JoinColumn({name: "person_id"})
     public person: Person;
 
     @ApiModelProperty({
@@ -45,10 +45,9 @@ export class PersonPet extends BaseEntity {
         description: "foreign key on pet",
     })
     @ManyToOne(() => Pet)
-    @JoinColumn({name: "id"})
+    @JoinColumn({name: "pet_id"})
     public pet: Pet;
 
-    @IsDate()
     @ApiModelProperty({
         description: "Started Fellowship date",
         required: true,
