@@ -2,6 +2,10 @@ import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique} from "typeor
 import {ApiModel, ApiModelProperty} from "swagger-express-ts";
 import {IsEmail, Length, MaxLength} from "class-validator";
 
+/**
+ * Animal model
+ * Describes animal type
+ */
 @ApiModel({
     description: "Animal model for determining type of pet",
     name: "Animal",

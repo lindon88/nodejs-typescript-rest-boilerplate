@@ -2,6 +2,11 @@ import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique} from "typeor
 import {ApiModel, ApiModelProperty} from "swagger-express-ts";
 import {IsEmail, Length} from "class-validator";
 
+/**
+ * Person model
+ * Describes person
+ * Unique key: first_name, last_name
+ */
 @ApiModel({
     description: "Person model for example",
     name: "Person",

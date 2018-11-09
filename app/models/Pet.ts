@@ -1,23 +1,45 @@
 import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique, ManyToMany, JoinColumn, ManyToOne} from "typeorm";
 import {ApiModel, ApiModelProperty} from "swagger-express-ts";
-import {IsEmail, Length} from "class-validator";
+import {IsEmail, IsNumber, Length, MaxLength} from "class-validator";
 import {Animal} from "./Animal";
 
+/**
+ * Pet model
+ * References table animal for animal type
+ */
+@ApiModel({
+    description: "Pets model",
+    name: "Pet",
+})
 @Entity("pets")
 export class Pet extends BaseEntity {
+    @ApiModelProperty({
+        description: "Pet ID",
+    })
     @PrimaryGeneratedColumn()
     public id: number;
 
+    @ApiModelProperty({
+        description: "Animal foreign key",
+        required: true,
+    })
     @ManyToOne((type) => Animal)
     @JoinColumn({name: "id"})
     public animal: Animal;
 
-    @Column({type: "varchar"})
-    public species_name: string;
-
+    @MaxLength(20)
+    @ApiModelProperty({
+        description: "Pet name",
+        required: true,
+    })
     @Column({type: "varchar"})
     public name: string;
 
+    @IsNumber()
+    @ApiModelProperty({
+        description: "Pet age",
+        required: true,
+    })
     @Column({type: "integer"})
     public age: number;
 
