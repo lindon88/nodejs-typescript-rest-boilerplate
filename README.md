@@ -21,3 +21,20 @@ You can also run these scripts separately
 * tsc             `tsc`
 * npm run tslint  `tslint -c tslint.json 'app/**/*.ts'`
 * npm run docs    `./node_modules/.bin/typedoc --out ./docs/typedoc --mode modules`
+
+## Application structure
+Explain application structure
+
+## Route definitions
+Explain how routes are defined in our application
+
+## Swagger documentation
+Explain how swagger documentation is defined in our application
+
+## Testing
+Explain how test are defined in our application
+
+## Frameworks (libraries)
+Explain which libraries we are using
+
+
