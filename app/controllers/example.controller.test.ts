@@ -186,3 +186,67 @@ describe("Read specific pet", () => {
             });
     });
 });
+
+// test creating relation person-pet
+describe("Create new person-pet relation", () => {
+    it("should return message", () => {
+        return chai.request(app).post("/example/fellows/create")
+            .send(
+                {
+                    person_id : 1,
+                    pet_id: 2,
+                    started_fellowship: "2018-05-05",
+                },
+            )
+            .then((res) => {
+                chai.expect(res.body).to.eql({});
+            });
+    });
+});
+
+// test updating existing relation person-pet
+describe("Update existing person-pet relation", () => {
+    it("should return message", () => {
+        return chai.request(app).post("/example/fellows/update")
+            .send(
+                {
+                    person_id : 1,
+                    pet_id: 2,
+                    started_fellowship: "2018-05-05",
+                },
+            )
+            .then((res) => {
+                chai.expect(res.body).to.eql({});
+            });
+    });
+});
+
+// test deleting existing relation person-pet
+describe("Delete existing person-pet relation", () => {
+    it("should return message", () => {
+        return chai.request(app).del("/example/fellows/delete/1/2")
+            .then((res) => {
+                chai.expect(res.body).to.eql({});
+            });
+    });
+});
+
+// test reading all relations
+describe("Read all person-pet relations", () => {
+    it("should return response data", () => {
+        return chai.request(app).get("/example/fellows/all")
+            .then((res) => {
+                chai.expect(res.body).to.eql({});
+            });
+    });
+});
+
+// test reading all relations for specific person
+describe("Read all person-pet relation for specific person", () => {
+    it("should return response data", () => {
+        return chai.request(app).get("/example/fellows/1")
+            .then((res) => {
+                chai.expect(res.body).to.eql({});
+            });
+    });
+});
