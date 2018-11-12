@@ -26,8 +26,8 @@ You can now run the project:
 ```npm start```
 
 ## Plugins
-Here is a list of used NPM dependencies:
-```
+> Here is a list of used NPM dependencies:
+
 | Package | Version | Dev |
 | :--- | :---: | :---: |
 | [@types/chai](https://www.npmjs.com/package/@types/chai) | **^4.1.7** | ✖ |
@@ -55,7 +55,7 @@ Here is a list of used NPM dependencies:
 | [typescript](https://www.npmjs.com/package/typescript) | **^3.1.6** | ✔ |
 | [tslint](https://www.npmjs.com/package/tslint) | **^5.11.0** | ✔ |
 | [typedoc](https://www.npmjs.com/package/typedoc) | **^0.13.0** | ✔ |
-```
+
 ## Application structure
 > Folder structure options and naming conventions for rest api
 ```
@@ -80,7 +80,17 @@ Here is a list of used NPM dependencies:
 └──README.md
 ```
 ## Route definitions
-Explain how routes are defined in our application
+Routing is a bit specific, since our project is not using express framework's routing, but rather `routing-controller` package which allows us to use
+decorators for our routes. This way, our application structure doesn't have any need for route folder, and the code looks more like java/spring annotations.
+> Here's an example of GET route:
+```
+    @Get("/api/users")
+    public getAllUsers(req: Request, res: Response, next: NextFunction) {
+        const results = this.testHelper.getAllUsers();
+        loggerConfig.register().debug("Users returned successfully");
+        return results;
+    }
+```
 
 ## Swagger documentation
 Explain how swagger documentation is defined in our application
