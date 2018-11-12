@@ -56,8 +56,27 @@ Here is a list of used NPM dependencies:
 | [typedoc](https://www.npmjs.com/package/typedoc) | **^0.13.0** | ✔ |
 
 ## Application structure
-Explain application structure
+> Folder structure options and naming conventions for rest api
 
+.
+├──app                  # application logic
+│  ├──config                # application config files (database connection, logger, swagger, tsdoc)
+│  ├──controllers           # entry point for requests, input validation
+│  │  ├──helpers                # business logic
+│  ├──core                  # bootstrap files
+│  ├──models                # ORM models, mapped to database
+│  ├──services              # shared repository
+│  └──app.ts                # application entry point
+├──build                # compiled files
+├──docs                 # generated documentation files
+├──logs                 # log files
+├──node_modules         # npm package dependencies
+├──.gitignore
+├──tsconfig.json        # typescript configuration
+├──tslint.json          # tslint configuration
+├──package.json
+├──LICENCE
+└──README.md
 ## Route definitions
 Explain how routes are defined in our application
 
