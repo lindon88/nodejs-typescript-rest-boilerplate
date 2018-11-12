@@ -280,3 +280,5 @@
 
 2018-11-12T10:22:29.574 DEBUG service X{user} Users returned successfully
 
+2018-11-12T10:39:33.054 DEBUG service X{user} Request to delete person with ID - NaN
+

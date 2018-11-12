@@ -17,6 +17,11 @@ import {Body, Delete, Get, JsonController, Param, Params, Post} from "routing-co
 import {validate} from "class-validator";
 import {BaseController} from "./base.controller";
 
+/**
+ * Showcase controller
+ * CRUD examples
+ * Using two or more tables with joins
+ */
 @ApiPath({
     path: "/example",
     name: "Example",
@@ -30,7 +35,12 @@ export class ExampleController extends BaseController {
         this.exampleHelper = new ExampleHelper(getRepository(Person), getRepository(Animal), getRepository(Pet), getRepository(PersonPet));
     }
 
+    /**
+     * Creates new person
+     * @param person
+     */
     @ApiOperationPost({
+        path: "/person/create",
         description: "Create person",
         summary: "Create new person",
         parameters: {
@@ -51,7 +61,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Updates existing person
+     * @param person
+     */
     @ApiOperationPost({
+        path: "/person/update",
         description: "Update person",
         summary: "Update existing person",
         parameters: {
@@ -72,8 +87,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Deletes existing person
+     * @param id
+     */
     @ApiOperationDelete({
-        path: "/person/delete/:id",
+        path: "/person/delete/{id}",
         parameters: {
             path: {
                 id: {
@@ -98,6 +117,9 @@ export class ExampleController extends BaseController {
         }
     }
 
+    /**
+     * @returns all persons from database
+     */
     @ApiOperationGet({
         path: "/person/all",
         description: "Get all persons",
@@ -115,6 +137,10 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    /**
+     * @returns specific person from database
+     * @param person_id
+     */
     @ApiOperationGet({
         path: "/person/{id}",
         description: "Get specific person from database",
@@ -141,7 +167,12 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    /**
+     * Creates new animal
+     * @param animal
+     */
     @ApiOperationPost({
+        path: "/animal/create",
         description: "Create animal",
         summary: "Create new animal",
         parameters: {
@@ -162,7 +193,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Updates existing animal
+     * @param animal
+     */
     @ApiOperationPost({
+        path: "/animal/update",
         description: "Update animal",
         summary: "Update existing animal",
         parameters: {
@@ -183,8 +219,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Deletes existing animal
+     * @param id
+     */
     @ApiOperationDelete({
-        path: "/animal/delete/:id",
+        path: "/animal/delete/{id}",
         parameters: {
             path: {
                 id: {
@@ -209,6 +249,9 @@ export class ExampleController extends BaseController {
         }
     }
 
+    /**
+     * @returns all animals from database
+     */
     @ApiOperationGet({
         path: "/animal/all",
         description: "Get all animals",
@@ -226,6 +269,10 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    /**
+     * @returns specific animal from database
+     * @param animal_id
+     */
     @ApiOperationGet({
         path: "/animal/{id}",
         description: "Get specific animal from database",
@@ -252,7 +299,12 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    /**
+     * Creates new pet
+     * @param pet
+     */
     @ApiOperationPost({
+        path: "/pet/create",
         description: "Create pet",
         summary: "Create new pet",
         parameters: {
@@ -273,7 +325,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Updates existing pet
+     * @param pet
+     */
     @ApiOperationPost({
+        path: "/pet/update",
         description: "Update pet",
         summary: "Update existing pet",
         parameters: {
@@ -294,8 +351,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Deletes existing pet
+     * @param id
+     */
     @ApiOperationDelete({
-        path: "/pet/delete/:id",
+        path: "/pet/delete/{id}",
         parameters: {
             path: {
                 id: {
@@ -320,6 +381,9 @@ export class ExampleController extends BaseController {
         }
     }
 
+    /**
+     * @returns all pets from database
+     */
     @ApiOperationGet({
         path: "/pet/all",
         description: "Get all pets",
@@ -337,6 +401,10 @@ export class ExampleController extends BaseController {
         return results;
     }
 
+    /**
+     * @returns specific pet from database
+     * @param pet_id
+     */
     @ApiOperationGet({
         path: "/pet/{id}",
         description: "Get specific pet from database",
@@ -363,7 +431,12 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    /**
+     * Creates new person-pet relation
+     * @param personPet
+     */
     @ApiOperationPost({
+        path: "/fellows/create",
         description: "Create fellowship",
         summary: "Create new person-pet connection",
         parameters: {
@@ -384,7 +457,12 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Updates existing person-pet relation
+     * @param personPet
+     */
     @ApiOperationPost({
+        path: "/fellows/update",
         description: "Update fellowship",
         summary: "Update existing fellowship",
         parameters: {
@@ -405,8 +483,13 @@ export class ExampleController extends BaseController {
         });
     }
 
+    /**
+     * Deletes exiting person-pet relation
+     * @param person_id
+     * @param pet_id
+     */
     @ApiOperationDelete({
-        path: "/fellows/delete/:person_id/:pet_id",
+        path: "/fellows/delete/{person_id}/{pet_id}",
         parameters: {
             path: {
                 person_id: {
@@ -435,6 +518,9 @@ export class ExampleController extends BaseController {
         }
     }
 
+    /**
+     * @returns all person-pet relations
+     */
     @ApiOperationGet({
         path: "/fellows/all",
         description: "Get all fellows",
@@ -452,6 +538,10 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    /**
+     * @returns person-pet relations for specific person
+     * @param person_id
+     */
     @ApiOperationGet({
         path: "/fellows/{id}",
         description: "Get specific fellowship from database by PersonId",
