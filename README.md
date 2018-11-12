@@ -119,7 +119,19 @@ different decorators than our routing, so it needs to be defined separately.
 This library doesn't require any specific config file, it makes documentation on the run.
 
 ## Testing
-Explain how test are defined in our application
+For tests, this project uses `mocha` and `chai`. Tests are defined next to controllers, in the same folders. Thus, every controller has it's corresponding test.
+> test.controller.ts - test.controller.test.ts
+> Here's an example of one simple test
+```
+describe("TEST API REQUEST", () => {
+    it("should return response an call", () => {
+        return chai.request(app).get("/api/test")
+            .then((res) => {
+                chai.expect(res.body).to.eql({});
+            });
+    });
+});
+```
 
 ## Frameworks (libraries)
 Explain which libraries we are using
