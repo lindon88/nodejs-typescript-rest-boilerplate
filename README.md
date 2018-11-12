@@ -16,7 +16,7 @@ npm run build
 ```
 This command compiles project into javascript, runs tslint for errors, creates docs and runs all available tests.
 You can also run these scripts separately
-```
+
 * npm run test    `mocha -r ts-node/register app/controllers/*.test.ts`
 * tsc             `tsc`
 * npm run tslint  `tslint -c tslint.json 'app/**/*.ts'`
