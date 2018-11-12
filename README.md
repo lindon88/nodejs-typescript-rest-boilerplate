@@ -27,6 +27,7 @@ You can now run the project:
 
 ## Plugins
 Here is a list of used NPM dependencies:
+```
 | Package | Version | Dev |
 | :--- | :---: | :---: |
 | [@types/chai](https://www.npmjs.com/package/@types/chai) | **^4.1.7** | ✖ |
@@ -54,7 +55,7 @@ Here is a list of used NPM dependencies:
 | [typescript](https://www.npmjs.com/package/typescript) | **^3.1.6** | ✔ |
 | [tslint](https://www.npmjs.com/package/tslint) | **^5.11.0** | ✔ |
 | [typedoc](https://www.npmjs.com/package/typedoc) | **^0.13.0** | ✔ |
-
+```
 ## Application structure
 > Folder structure options and naming conventions for rest api
 ```
