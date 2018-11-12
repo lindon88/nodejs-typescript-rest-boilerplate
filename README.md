@@ -22,6 +22,15 @@ You can also run these scripts separately
 * npm run tslint  `tslint -c tslint.json 'app/**/*.ts'`
 * npm run docs    `./node_modules/.bin/typedoc --out ./docs/typedoc --mode modules`
 
+You can now run the project:
+```npm start```
+
+## Plugins
+Here is a list of used NPM dependencies:
+| Package | Version | Dev |
+| --- | --- | --- |
+| [@types/chai](https://www.npmjs.com/package/@types/chai) | **^4.1.7** | ✖ |
+
 ## Application structure
 Explain application structure
 
