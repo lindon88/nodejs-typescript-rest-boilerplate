@@ -5,7 +5,13 @@ import {Pet} from "../models/Pet";
 import {PersonPet} from "../models/PersonPet";
 
 import {getRepository} from "typeorm";
-import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-express-ts";
+import {
+    ApiOperationDelete,
+    ApiOperationGet,
+    ApiOperationPost,
+    ApiPath,
+    SwaggerDefinitionConstant,
+} from "swagger-express-ts";
 import loggerConfig from "../config/logger.config";
 import {Body, Delete, Get, JsonController, Param, Params, Post} from "routing-controllers";
 import {validate} from "class-validator";
@@ -24,6 +30,17 @@ export class ExampleController extends BaseController {
         this.exampleHelper = new ExampleHelper(getRepository(Person), getRepository(Animal), getRepository(Pet), getRepository(PersonPet));
     }
 
+    @ApiOperationPost({
+        description: "Create person",
+        summary: "Create new person",
+        parameters: {
+            body: { description: "new person", required: true, model: "Person"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/person/create")
     public createPerson(@Body({validate: true}) person: Person) {
         return this.validateObject(person).then((response) => {
@@ -34,6 +51,17 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationPost({
+        description: "Update person",
+        summary: "Update existing person",
+        parameters: {
+            body: { description: "update person", required: true, model: "Person"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/person/update")
     public updatePerson(@Body({validate: true}) person: Person) {
         return this.validateObject(person).then((response) => {
@@ -44,6 +72,21 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationDelete({
+        path: "/person/delete/:id",
+        parameters: {
+            path: {
+                id: {
+                    description: "Id of person",
+                    type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                    required: true,
+                },
+            },
+        },
+        responses: {
+            200: { description: "Success" },
+        },
+    })
     @Delete("/example/person/delete/:id")
     public deletePerson(@Param("id") id: number) {
         loggerConfig.register().debug("Request to delete person with ID - " + id);
@@ -55,6 +98,16 @@ export class ExampleController extends BaseController {
         }
     }
 
+    @ApiOperationGet({
+        path: "/person/all",
+        description: "Get all persons",
+        summary: "Get persons request",
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Person",
+            },
+        },
+    })
     @Get("/example/person/all")
     public getPersons() {
         const result = this.exampleHelper.getAllPersons();
@@ -62,6 +115,25 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    @ApiOperationGet({
+        path: "/person/{id}",
+        description: "Get specific person from database",
+        summary: "Get specific person from database using typeORM",
+        parameters:
+            {
+                path: {
+                    id: {
+                        type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                        required: true,
+                    },
+                },
+            },
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Person",
+            },
+        },
+    })
     @Get("/example/person/:id")
     public getPerson(@Param("id") person_id: number) {
         const result = this.exampleHelper.getPerson(person_id);
@@ -69,6 +141,17 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    @ApiOperationPost({
+        description: "Create animal",
+        summary: "Create new animal",
+        parameters: {
+            body: { description: "new animal", required: true, model: "Animal"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/animal/create")
     public createAnimal(@Body({validate: true}) animal: Animal) {
         return this.validateObject(animal).then((response) => {
@@ -79,6 +162,17 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationPost({
+        description: "Update animal",
+        summary: "Update existing animal",
+        parameters: {
+            body: { description: "update animal", required: true, model: "Animal"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/animal/update")
     public updateAnimal(@Body({validate: true}) animal: Animal) {
         return this.validateObject(animal).then((response) => {
@@ -89,6 +183,21 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationDelete({
+        path: "/animal/delete/:id",
+        parameters: {
+            path: {
+                id: {
+                    description: "Id of animal",
+                    type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                    required: true,
+                },
+            },
+        },
+        responses: {
+            200: { description: "Success" },
+        },
+    })
     @Delete("/example/animal/delete/:id")
     public deleteAnimal(@Param("id") id: number) {
         loggerConfig.register().debug("Request to delete animal with ID - " + id);
@@ -100,6 +209,16 @@ export class ExampleController extends BaseController {
         }
     }
 
+    @ApiOperationGet({
+        path: "/animal/all",
+        description: "Get all animals",
+        summary: "Get animals request",
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Animal",
+            },
+        },
+    })
     @Get("/example/animal/all")
     public getAnimals() {
         const result = this.exampleHelper.getAllAnimals();
@@ -107,6 +226,25 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    @ApiOperationGet({
+        path: "/animal/{id}",
+        description: "Get specific animal from database",
+        summary: "Get specific animal from database using typeORM",
+        parameters:
+            {
+                path: {
+                    id: {
+                        type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                        required: true,
+                    },
+                },
+            },
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Animal",
+            },
+        },
+    })
     @Get("/example/animal/:id")
     public getAnimalByID(@Param("id") animal_id: number) {
         const result = this.exampleHelper.getAnimal(animal_id);
@@ -114,6 +252,17 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    @ApiOperationPost({
+        description: "Create pet",
+        summary: "Create new pet",
+        parameters: {
+            body: { description: "new pet", required: true, model: "Pet"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/pet/create")
     public createPet(@Body({validate: true}) pet: Pet) {
         return this.validateObject(pet).then((response) => {
@@ -124,6 +273,17 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationPost({
+        description: "Update pet",
+        summary: "Update existing pet",
+        parameters: {
+            body: { description: "update pet", required: true, model: "Pet"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/pet/update")
     public updatePet(@Body({validate: true}) pet: Pet) {
         return this.validateObject(pet).then((response) => {
@@ -134,6 +294,21 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationDelete({
+        path: "/pet/delete/:id",
+        parameters: {
+            path: {
+                id: {
+                    description: "Id of pet",
+                    type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                    required: true,
+                },
+            },
+        },
+        responses: {
+            200: { description: "Success" },
+        },
+    })
     @Delete("/example/pet/delete/:id")
     public deletePet(@Param("id") id: number) {
         loggerConfig.register().debug("Request to delete pet with ID - " + id);
@@ -145,6 +320,16 @@ export class ExampleController extends BaseController {
         }
     }
 
+    @ApiOperationGet({
+        path: "/pet/all",
+        description: "Get all pets",
+        summary: "Get pets request",
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Pet",
+            },
+        },
+    })
     @Get("/example/pet/all")
     public getAllPets() {
         const results = this.exampleHelper.getAllPets();
@@ -152,6 +337,25 @@ export class ExampleController extends BaseController {
         return results;
     }
 
+    @ApiOperationGet({
+        path: "/pet/{id}",
+        description: "Get specific pet from database",
+        summary: "Get specific pet from database using typeORM",
+        parameters:
+            {
+                path: {
+                    id: {
+                        type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                        required: true,
+                    },
+                },
+            },
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Pet",
+            },
+        },
+    })
     @Get("/example/pet/:id")
     public getPetByID(@Param("id") pet_id: number) {
         const result = this.exampleHelper.getPet(pet_id);
@@ -159,6 +363,17 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    @ApiOperationPost({
+        description: "Create fellowship",
+        summary: "Create new person-pet connection",
+        parameters: {
+            body: { description: "new fellowship", required: true, model: "PersonPet"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/fellows/create")
     public createFellowship(@Body({validate: true}) personPet: PersonPet) {
         return this.validateObject(personPet).then((response) => {
@@ -169,6 +384,17 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationPost({
+        description: "Update fellowship",
+        summary: "Update existing fellowship",
+        parameters: {
+            body: { description: "update fellowship", required: true, model: "PersonPet"},
+        },
+        responses: {
+            200: { description: "Success" },
+            400: { description: "Parameters fail" },
+        },
+    })
     @Post("/example/fellows/update")
     public updateFellowship(@Body({validate: true}) personPet: PersonPet) {
         return this.validateObject(personPet).then((response) => {
@@ -179,6 +405,25 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @ApiOperationDelete({
+        path: "/fellows/delete/:person_id/:pet_id",
+        parameters: {
+            path: {
+                person_id: {
+                    description: "Id of person",
+                    type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                    required: true,
+                },
+                pet_id: {
+                    description: "Id of pet",
+                    type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                },
+            },
+        },
+        responses: {
+            200: { description: "Success" },
+        },
+    })
     @Delete("/example/fellows/delete/:person_id/:pet_id")
     public deleteFellowship(@Param("person_id") person_id: number, @Param("pet_id") pet_id: number) {
         loggerConfig.register().debug("Request to end fellowship with personId - " + person_id + ", and petId: " + pet_id + ";");
@@ -190,6 +435,16 @@ export class ExampleController extends BaseController {
         }
     }
 
+    @ApiOperationGet({
+        path: "/fellows/all",
+        description: "Get all fellows",
+        summary: "Get fellows request",
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "PersonPet",
+            },
+        },
+    })
     @Get("/example/fellows/all")
     public getAllFellows() {
         const result = this.exampleHelper.getAllPersonPet();
@@ -197,6 +452,25 @@ export class ExampleController extends BaseController {
         return result;
     }
 
+    @ApiOperationGet({
+        path: "/fellows/{id}",
+        description: "Get specific fellowship from database by PersonId",
+        summary: "Get specific person-pet pair from database using typeORM",
+        parameters:
+            {
+                path: {
+                    id: {
+                        type: SwaggerDefinitionConstant.Parameter.Type.INTEGER,
+                        required: true,
+                    },
+                },
+            },
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "PersonPet",
+            },
+        },
+    })
     @Get("/example/fellows/:id")
     public getFellowsByPerson(@Param("id") person_id: number) {
         const result = this.exampleHelper.getPersonPetsByPersonID(person_id);

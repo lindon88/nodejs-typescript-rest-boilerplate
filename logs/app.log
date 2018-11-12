@@ -278,3 +278,5 @@
 
 2018-11-12T09:18:29.370 DEBUG service X{user} Request to end fellowship with personId - 1, and petId: 2;
 
+2018-11-12T10:22:29.574 DEBUG service X{user} Users returned successfully
+
