@@ -16,6 +16,7 @@ import {validate} from "class-validator";
     path: "/api",
     name: "Test",
 })
+
 @JsonController()
 export class TestController {
     private testHelper: TestHelper;

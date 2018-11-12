@@ -41,7 +41,7 @@ class Application {
         /**
          * Start Express server.
          */
-        const PORT = 8200;
+        const PORT = process.env.PORT || 8200;
         const server = this.expressServer.listen(PORT, () => {
             console.log(
                 "  App is running at http://localhost:%d in %s mode",

@@ -11,7 +11,7 @@ class DbConfig {
         return {
             type:     "mysql",
             name:     "default",
-            host:     "localhost",
+            host:     process.env.DB_HOST || "localhost",
             port:     3306,
             username: "root",
             password: "test1234",
