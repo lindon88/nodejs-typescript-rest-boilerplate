@@ -23,7 +23,9 @@ You can also run these scripts separately
 * npm run docs    `./node_modules/.bin/typedoc --out ./docs/typedoc --mode modules`
 
 You can now run the project:
-```npm start```
+```
+npm start
+```
 
 ## Plugins
 > Here is a list of used NPM dependencies:
@@ -93,7 +95,28 @@ decorators for our routes. This way, our application structure doesn't have any 
 ```
 
 ## Swagger documentation
-Explain how swagger documentation is defined in our application
+This project uses typescript implementation for swagger - `swagger-express-ts`. It puts decorators to a good use, as well as our routing. Small setback is that it uses
+different decorators than our routing, so it needs to be defined separately.
+> Here is an entire example using swagger decorator with previous example using routing-controller:
+```
+@ApiOperationGet({
+        path: "/users",
+        description: "Get all users from database",
+        summary: "Get all users from database using typeORM",
+        responses: {
+            200: {
+                description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "User",
+            },
+        },
+    })
+    @Get("/api/users")
+    public getAllUsers(req: Request, res: Response, next: NextFunction) {
+        const results = this.testHelper.getAllUsers();
+        loggerConfig.register().debug("Users returned successfully");
+        return results;
+    }
+```
+This library doesn't require any specific config file, it makes documentation on the run.
 
 ## Testing
 Explain how test are defined in our application
