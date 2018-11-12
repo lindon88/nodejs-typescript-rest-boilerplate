@@ -268,3 +268,13 @@
 
 2018-11-09T14:52:08.071 DEBUG service X{user} Requested person-pet objects by personId:  1
 
+2018-11-12T09:03:38.989 DEBUG service X{user} Request to end fellowship by id - 2
+
+2018-11-12T09:09:35.410 DEBUG service X{user} Request to end fellowship with personId - 1, and petId: 2;
+
+2018-11-12T09:12:21.990 DEBUG service X{user} Request to end fellowship with personId - 1, and petId: 2;
+
+2018-11-12T09:13:45.156 DEBUG service X{user} Request to end fellowship with personId - 1, and petId: 2;
+
+2018-11-12T09:18:29.370 DEBUG service X{user} Request to end fellowship with personId - 1, and petId: 2;
+

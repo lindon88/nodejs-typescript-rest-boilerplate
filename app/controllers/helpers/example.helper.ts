@@ -42,11 +42,23 @@ class ExampleHelper {
      */
     public async updatePerson(data: Person) {
         const person = await this.personRepository.findOne(data.id);
-        person!.first_name = data.first_name;
-        person!.last_name = data.last_name;
-        person!.email = data.email;
+        if (person) {
+            person.first_name = data.first_name;
+            person.last_name = data.last_name;
+            person.email = data.email;
+            await person.save();
+        }
+    }
 
-        await person!.save();
+    /**
+     * Delete person
+     * @param id
+     */
+    public async deletePerson(id: number) {
+        const personToRemove = await this.personRepository.findOne(id);
+        if (personToRemove) {
+            await this.personRepository.remove(personToRemove);
+        }
     }
 
     /**
@@ -81,8 +93,21 @@ class ExampleHelper {
      */
     public async updateAnimal(data: Animal) {
         const animal = await this.animalRepository.findOne(data.id);
-        animal!.name = data.name;
-        await animal!.save();
+        if (animal) {
+            animal.name = data.name;
+            await animal.save();
+        }
+    }
+
+    /**
+     * Delete animal
+     * @param id
+     */
+    public async deleteAnimal(id: number) {
+        const animalToRemove = await this.animalRepository.findOne(id);
+        if (animalToRemove) {
+            await this.animalRepository.remove(animalToRemove);
+        }
     }
 
     /**
@@ -119,9 +144,18 @@ class ExampleHelper {
      */
     public async updatePet(data: Pet) {
         const pet = await this.petRepository.findOne(data.id);
-        pet!.name = data.name;
-        pet!.age = data.age;
-        await pet!.save();
+        if (pet) {
+            pet.name = data.name;
+            pet.age = data.age;
+            await pet.save();
+        }
+    }
+
+    public async deletePet(id: number) {
+        const petToRemove = await this.petRepository.findOne(id);
+        if (petToRemove) {
+            await this.petRepository.remove(petToRemove!);
+        }
     }
 
     /**
@@ -158,9 +192,23 @@ class ExampleHelper {
      */
     public async updatePersonPet(data: PersonPet) {
         const personPet = await this.personPetRepository.findOne(data.person_id);
-        personPet!.started_fellowship = data.started_fellowship;
+        if (personPet) {
+            personPet.started_fellowship = data.started_fellowship;
 
-        await personPet!.save();
+            await personPet.save();
+        }
+    }
+
+    /**
+     * Remove fellowship
+     * @param person_id
+     * @param pet_id
+     */
+    public async deletePersonPet(person_id: number, pet_id: number) {
+        const personPetToRemove = await this.personPetRepository.find({where: {person_id, pet_id}});
+        if (personPetToRemove) {
+            await this.personPetRepository.remove(personPetToRemove);
+        }
     }
 
     /**

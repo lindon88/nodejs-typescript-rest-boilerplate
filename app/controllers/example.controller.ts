@@ -7,7 +7,7 @@ import {PersonPet} from "../models/PersonPet";
 import {getRepository} from "typeorm";
 import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-express-ts";
 import loggerConfig from "../config/logger.config";
-import {Body, Get, JsonController, Param, Post} from "routing-controllers";
+import {Body, Delete, Get, JsonController, Param, Params, Post} from "routing-controllers";
 import {validate} from "class-validator";
 import {BaseController} from "./base.controller";
 
@@ -44,6 +44,17 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @Delete("/example/person/delete/:id")
+    public deletePerson(@Param("id") id: number) {
+        loggerConfig.register().debug("Request to delete person with ID - " + id);
+        const deletePerson = this.exampleHelper.deletePerson(id);
+        if (deletePerson) {
+            return {message: "Successfully delete person"};
+        } else {
+            return {error: "Could not delete person"};
+        }
+    }
+
     @Get("/example/person/all")
     public getPersons() {
         const result = this.exampleHelper.getAllPersons();
@@ -76,6 +87,17 @@ export class ExampleController extends BaseController {
         }).catch((error) => {
             return {message: error};
         });
+    }
+
+    @Delete("/example/animal/delete/:id")
+    public deleteAnimal(@Param("id") id: number) {
+        loggerConfig.register().debug("Request to delete animal with ID - " + id);
+        const deleteAnimal = this.exampleHelper.deleteAnimal(id);
+        if (deleteAnimal) {
+            return {message: "Successfully deleted animal"};
+        } else {
+            return {error: "Couldn't delete animal"};
+        }
     }
 
     @Get("/example/animal/all")
@@ -112,6 +134,17 @@ export class ExampleController extends BaseController {
         });
     }
 
+    @Delete("/example/pet/delete/:id")
+    public deletePet(@Param("id") id: number) {
+        loggerConfig.register().debug("Request to delete pet with ID - " + id);
+        const deletePet = this.exampleHelper.deletePet(id);
+        if (deletePet) {
+            return {message: "Successfully deleted pet"};
+        } else {
+            return {error: "Couldn't delete pet"};
+        }
+    }
+
     @Get("/example/pet/all")
     public getAllPets() {
         const results = this.exampleHelper.getAllPets();
@@ -144,6 +177,17 @@ export class ExampleController extends BaseController {
         }).catch((error) => {
             return {message: error};
         });
+    }
+
+    @Delete("/example/fellows/delete/:person_id/:pet_id")
+    public deleteFellowship(@Param("person_id") person_id: number, @Param("pet_id") pet_id: number) {
+        loggerConfig.register().debug("Request to end fellowship with personId - " + person_id + ", and petId: " + pet_id + ";");
+        const deletePersonPet = this.exampleHelper.deletePersonPet(person_id, pet_id);
+        if (deletePersonPet) {
+            return {message: "Successfully deleted person-pet relationship"};
+        } else {
+            return {message: "Error occurred"};
+        }
     }
 
     @Get("/example/fellows/all")
