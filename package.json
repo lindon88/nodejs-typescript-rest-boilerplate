@@ -25,7 +25,6 @@
     "swagger-express-ts": "^1.0.0",
     "ts-log-debug": "^4.0.4",
     "ts-node": "^7.0.1",
-    "tsoa": "^2.2.5",
     "typeorm": "^0.2.8",
     "typescript": "^3.1.6"
   },
