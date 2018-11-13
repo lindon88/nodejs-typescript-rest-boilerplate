@@ -568,4 +568,3 @@ export class ExampleController extends BaseController {
         return result;
     }
 }
-export default ExampleController;
