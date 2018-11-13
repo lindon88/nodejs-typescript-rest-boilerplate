@@ -11,7 +11,7 @@ class SwaggerConfig {
      */
     public register = (app: any) => {
         this.routes(app);
-    }
+    };
 
     /**
      * Basic info about api docs
@@ -26,7 +26,7 @@ class SwaggerConfig {
                 // Models can be defined here
             },
         };
-    }
+    };
 
     /**
      * Registering routes for docs

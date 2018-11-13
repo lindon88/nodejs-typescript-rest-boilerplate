@@ -7,8 +7,7 @@ import {useExpressServer} from "routing-controllers";
 import SwaggerConfig from "../config/swagger.config";
 import LoggerConfig from "../config/logger.config";
 import TsdocConfig from "../config/tsdoc.config";
-import TestController from "../controllers/test.controller";
-import ExampleController from "../controllers/example.controller";
+import Router from "../routes";
 
 class Application {
     private expressServer: any;
@@ -40,11 +39,8 @@ class Application {
     private serverStart = () => {
         this.expressServer.use(bodyParser.json());
 
-        // route for test controller and route
-        useExpressServer(this.expressServer, {
-            validation: true,
-            controllers: [TestController, ExampleController],
-        });
+        // register controllers and routes
+        Router.register(this.expressServer);
 
         // register swagger config and docs config
         SwaggerConfig.register(this.expressServer);
