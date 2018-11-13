@@ -130,7 +130,7 @@ export class ExampleController extends BaseController {
             },
         },
     })
-    @Get("/example/person/all")
+    @Get("/example/persons/all")
     public getPersons() {
         const result = this.exampleHelper.getAllPersons();
         loggerConfig.register().debug("Requested all persons");
@@ -262,7 +262,7 @@ export class ExampleController extends BaseController {
             },
         },
     })
-    @Get("/example/animal/all")
+    @Get("/example/animals/all")
     public getAnimals() {
         const result = this.exampleHelper.getAllAnimals();
         loggerConfig.register().debug("Requested all animals");
@@ -394,7 +394,7 @@ export class ExampleController extends BaseController {
             },
         },
     })
-    @Get("/example/pet/all")
+    @Get("/example/pets/all")
     public getAllPets() {
         const results = this.exampleHelper.getAllPets();
         loggerConfig.register().debug("Requested all pets");
@@ -561,7 +561,7 @@ export class ExampleController extends BaseController {
             },
         },
     })
-    @Get("/example/fellows/:id")
+    @Get("/example/fellowship/:id")
     public getFellowsByPerson(@Param("id") person_id: number) {
         const result = this.exampleHelper.getPersonPetsByPersonID(person_id);
         loggerConfig.register().debug("Requested person-pet objects by personId: ", person_id);

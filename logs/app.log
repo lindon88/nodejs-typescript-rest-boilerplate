@@ -288,3 +288,33 @@
 
 2018-11-13T11:07:34.542 DEBUG service X{user} Users returned successfully
 
+2018-11-13T11:20:18.613 DEBUG service X{user} Requested all pets
+
+2018-11-13T11:20:31.473 DEBUG service X{user} Requested all person-pet models
+
+2018-11-13T11:20:31.509 DEBUG service X{user} Requested person-pet objects by personId:  NaN
+
+2018-11-13T11:21:30.567 DEBUG service X{user} Requested all pets
+
+2018-11-13T11:22:19.381 DEBUG service X{user} Requested all pets
+
+2018-11-13T11:22:19.431 DEBUG service X{user} Requested pet by id:  NaN
+
+2018-11-13T11:24:07.658 DEBUG service X{user} Requested pet by id:  2
+
+2018-11-13T11:24:15.288 DEBUG service X{user} Requested all pets
+
+2018-11-13T11:24:15.298 DEBUG service X{user} Requested pet by id:  NaN
+
+2018-11-13T11:25:47.729 DEBUG service X{user} Requested all pets
+
+2018-11-13T11:27:12.340 DEBUG service X{user} Requested all animals
+
+2018-11-13T11:27:12.471 DEBUG service X{user} Requested all animals
+
+2018-11-13T11:28:47.746 DEBUG service X{user} Requested all person-pet models
+
+2018-11-13T11:28:47.782 DEBUG service X{user} Requested person-pet objects by personId:  NaN
+
+2018-11-13T11:29:52.032 DEBUG service X{user} Requested all person-pet models
+

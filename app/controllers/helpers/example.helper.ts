@@ -162,7 +162,7 @@ class ExampleHelper {
      * @returns all pets
      */
     public async getAllPets() {
-        return await this.petRepository.find({relations: ["animal_id"]});
+        return await this.petRepository.find({relations: ["animal"]});
     }
 
     /**
@@ -170,7 +170,7 @@ class ExampleHelper {
      * @param id
      */
     public async getPet(id: number) {
-        return await this.petRepository.findOne(id, {relations: ["animal_id"]});
+        return await this.petRepository.findOne(id, {relations: ["animal"]});
     }
 
     /**
