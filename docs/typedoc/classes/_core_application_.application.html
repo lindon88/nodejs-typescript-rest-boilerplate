@@ -99,6 +99,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_application_.application.html#bootstrap" class="tsd-kind-icon">bootstrap</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_application_.application.html#databaseconnect" class="tsd-kind-icon">database<wbr>Connect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_application_.application.html#enablecors" class="tsd-kind-icon">enableCORS</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_application_.application.html#getserver" class="tsd-kind-icon">get<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_application_.application.html#serverstart" class="tsd-kind-icon">server<wbr>Start</a></li>
 							</ul>
@@ -118,7 +119,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L15">core/application.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L14">core/application.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_core_application_.application.html" class="tsd-signature-type">Application</a></h4>
@@ -134,7 +135,7 @@
 					<div class="tsd-signature tsd-kind-icon">db<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L15">core/application.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L14">core/application.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">express<wbr>Server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L14">core/application.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L13">core/application.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -161,9 +162,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L21">core/application.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L23">core/application.ts:23</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Application bootstrap</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -178,10 +184,47 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L55">core/application.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L69">core/application.ts:69</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Connect to database</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Connection</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="enablecors" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> enableCORS</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">enableCORS<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L80">core/application.ts:80</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Enable CORS for defined url</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -195,9 +238,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L27">core/application.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L32">core/application.ts:32</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get server</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
@@ -212,9 +260,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/b461e37/app/core/application.ts#L31">core/application.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/lindon88/nodejs-typescript-rest-boilerplate/blob/32d5f04/app/core/application.ts#L39">core/application.ts:39</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Start server</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -281,6 +334,9 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_models_user_.html">"models/<wbr>User"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_routes_.html">"routes"</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -304,6 +360,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_core_application_.application.html#databaseconnect" class="tsd-kind-icon">database<wbr>Connect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_core_application_.application.html#enablecors" class="tsd-kind-icon">enableCORS</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_core_application_.application.html#getserver" class="tsd-kind-icon">get<wbr>Server</a>
