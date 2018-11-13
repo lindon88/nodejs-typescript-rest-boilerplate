@@ -37,6 +37,8 @@ class Application {
      * Start server
      */
     private serverStart = () => {
+        // Enable CORS
+        this.enableCORS("http://localhost:8080");
         this.expressServer.use(bodyParser.json());
 
         // register controllers and routes
@@ -45,9 +47,6 @@ class Application {
         // register swagger config and docs config
         SwaggerConfig.register(this.expressServer);
         TsdocConfig.register(this.expressServer);
-
-        // Enable CORS
-        this.enableCORS("http://localhost:8080");
 
         /**
          * Start Express server.
