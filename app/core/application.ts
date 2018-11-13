@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import * as bodyParser from "body-parser";
-import express from "express";
+import express, {NextFunction} from "express";
 import {createConnection} from "typeorm";
 import dbConfig from "../config/db.config";
 import {useExpressServer} from "routing-controllers";
@@ -38,6 +38,25 @@ class Application {
         });
         SwaggerConfig.register(this.expressServer);
         TsdocConfig.register(this.expressServer);
+
+        // cors
+        this.expressServer.use( (req: any, res: any, next: any) => {
+            res.set({
+                "Access-Control-Allow-Origin": "http://localhost:8080",
+                "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT,DELETE",
+                "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, " +
+                    "Access-Control-Request-Headers, authorization, Pragma, Cache-Control, synergy-login-token, If-Modified-Since, user-id, corporate-id",
+            });
+
+            // intercept pre-flight (options method) request
+            if ("OPTIONS" === req.method) {
+                res.sendStatus(204);
+            } else {
+                next();
+            }
+        });
+
         /**
          * Start Express server.
          */
