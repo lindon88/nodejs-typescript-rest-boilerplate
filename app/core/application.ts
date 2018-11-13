@@ -18,16 +18,25 @@ class Application {
         this.dbOptions = dbConfig.connection();
     }
 
+    /**
+     * Application bootstrap
+     */
     public bootstrap = () => {
         this.databaseConnect().then( () => {
             this.serverStart();
         }).catch((error: any) => console.log("TypeORM connection error: ", error));
-    }
+    };
 
+    /**
+     * Get server
+     */
     public getServer = () => {
         return this.expressServer;
-    }
+    };
 
+    /**
+     * Start server
+     */
     private serverStart = () => {
         this.expressServer.use(bodyParser.json());
 
@@ -36,26 +45,13 @@ class Application {
             validation: true,
             controllers: [TestController, ExampleController],
         });
+
+        // register swagger config and docs config
         SwaggerConfig.register(this.expressServer);
         TsdocConfig.register(this.expressServer);
 
-        // cors
-        this.expressServer.use( (req: any, res: any, next: any) => {
-            res.set({
-                "Access-Control-Allow-Origin": "http://localhost:8080",
-                "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT,DELETE",
-                "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, " +
-                    "Access-Control-Request-Headers, authorization, Pragma, Cache-Control, synergy-login-token, If-Modified-Since, user-id, corporate-id",
-            });
-
-            // intercept pre-flight (options method) request
-            if ("OPTIONS" === req.method) {
-                res.sendStatus(204);
-            } else {
-                next();
-            }
-        });
+        // Enable CORS
+        this.enableCORS("http://localhost:8080");
 
         /**
          * Start Express server.
@@ -69,13 +65,39 @@ class Application {
             );
             console.log("  Press CTRL-C to stop\n");
         });
-    }
+    };
 
+    /**
+     * Connect to database
+     */
     private databaseConnect = async () => {
         const options = this.dbOptions;
         return await createConnection(
             options,
         );
+    }
+
+    /**
+     * Enable CORS for defined url
+     * @param url
+     */
+    private enableCORS = (url: any) => {
+        this.expressServer.use( (req: any, res: any, next: any) => {
+            res.set({
+                "Access-Control-Allow-Origin": url,
+                "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT,DELETE",
+                "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, " +
+                    "Access-Control-Request-Headers, authorization, Pragma, Cache-Control, synergy-login-token, If-Modified-Since, user-id, corporate-id",
+            });
+
+            // intercept pre-flight (options method) request
+            if ("OPTIONS" === req.method) {
+                res.sendStatus(204);
+            } else {
+                next();
+            }
+        });
     }
 }
 
