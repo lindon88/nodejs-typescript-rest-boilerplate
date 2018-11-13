@@ -3,3 +3,4 @@ build
 .idea
 app/notes.txt
 docs/typedoc
+logs/*.log
