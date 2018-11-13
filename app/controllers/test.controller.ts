@@ -55,7 +55,6 @@ export class TestController extends BaseController {
      * @param res
      * @param next
      */
-    // @ts-ignore
     @ApiOperationGet({
         path: "/users",
         description: "Get all users from database",
