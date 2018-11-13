@@ -1,12 +1,10 @@
 import {TestController} from "./controllers/test.controller";
-import {ExampleController} from "./controllers/example.controller";
 import {useExpressServer} from "routing-controllers";
 
 class Router {
 
     private controllers: any[] = [
         TestController,
-        ExampleController,
     ];
 
     public register = (server: any) => {
