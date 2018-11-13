@@ -1,4 +1,4 @@
-import TestController from "./controllers/test.controller";
+import {TestController} from "./controllers/test.controller";
 import {ExampleController} from "./controllers/example.controller";
 import {useExpressServer} from "routing-controllers";
 

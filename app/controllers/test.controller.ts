@@ -5,7 +5,7 @@ import {getRepository} from "typeorm";
 import {ApiOperationGet, ApiPath, SwaggerDefinitionConstant} from "swagger-express-ts";
 import loggerConfig from "../config/logger.config";
 import {Body, Get, JsonController, Param, Post} from "routing-controllers";
-import {validate} from "class-validator";
+import {BaseController} from "./base.controller";
 
 /**
  * Test controllers
@@ -18,10 +18,11 @@ import {validate} from "class-validator";
 })
 
 @JsonController()
-export class TestController {
+export class TestController extends BaseController {
     private testHelper: TestHelper;
 
     constructor() {
+        super();
         this.testHelper = new TestHelper(getRepository(User));
     }
 
@@ -43,7 +44,6 @@ export class TestController {
     })
     @Get("/api/test")
     public getApiStatus() {
-        console.log("API TEST");
         const message = {message: "api test successful"};
         loggerConfig.register().debug("Message returned successfully");
         return message;
@@ -101,18 +101,11 @@ export class TestController {
 
     @Post("/api/user/create")
     public createUser(@Body({validate: true}) user: User) {
-        return new Promise((resolve, reject) => {
-            resolve(validate(user).then((errors) => {
-                if (errors.length > 0) {
-                    console.log("validation failed. errors: ", errors);
-                    return errors;
-                } else {
-                    const res = this.testHelper.postUser(user);
-                    return {message: "ran post user create"};
-                }
-            }));
+        return this.validateObject(user).then((response) => {
+            const res = this.testHelper.postUser(user);
+            return {message: "Successfully posted user parameters"};
+        }).catch((error) => {
+            return {message: error};
         });
     }
 }
-
-export default TestController;
