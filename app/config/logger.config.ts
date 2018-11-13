@@ -9,7 +9,7 @@ class LoggerConfig {
     /**
      * @returns logger
      */
-    public register = () => {
+    public register() {
         const logger = new Logger("service");
         logger.appenders
             .set("std-log", {

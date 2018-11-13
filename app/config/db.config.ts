@@ -7,7 +7,7 @@ class DbConfig {
     /**
      * @returns connection
      */
-    public connection = () => {
+    public connection() {
         return {
             type:     "mysql",
             name:     "default",
