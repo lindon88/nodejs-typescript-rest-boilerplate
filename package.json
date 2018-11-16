@@ -23,6 +23,7 @@
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
     "swagger-express-ts": "^1.0.0",
+    "swagger-ui-dist": "^3.19.5",
     "ts-log-debug": "^4.0.4",
     "ts-node": "^7.0.1",
     "typeorm": "^0.2.8",
