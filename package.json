@@ -31,8 +31,7 @@
   },
   "devDependencies": {
     "tslint": "^5.11.0",
-    "typedoc": "^0.13.0",
-    "typescript": "^3.1.6"
+    "typedoc": "^0.13.0"
   },
   "scripts": {
     "test": "mocha -r ts-node/register app/controllers/*.test.ts",
