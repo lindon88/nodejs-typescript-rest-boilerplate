@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "application",
+      "script": "npm",
+      "args": "run start",
+      "cwd": "./build"
+    }
+  ]
+}
